@@ -1,12 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-     <link rel="stylesheet" href="index.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee List</title>
+   <link rel="stylesheet" href="positions.css" />
 </head>
 <body>
-    
+  <div class="sidebar">
+    <h1>CrewSpace</h1>
+    <ul>
+      <li onclick="navigateTo('dashboard')">Dashboard</li>
+      <li onclick="navigateTo('employee-list')">Employee List</li>
+      <li onclick="navigateTo('positions')">Positions</li>
+      <li onclick="navigateTo('attendance')">Attendance</li>
+      <li onclick="logout()">Logout</li>
+    </ul>
+  </div>
+  <div class="main-content">
+    <h2>Positions</h2>
+    <button onclick="window.location.href='/add-positions'">Add Positions</button>
+    <table>
+      <thead>
+        <tr>
+          <th>Position</th>
+          <th>Daily Rate</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="positionsList"></tbody>
+    </table>
+  </div>
+
+  <script src="positions.js"></script>
 </body>
 </html>
