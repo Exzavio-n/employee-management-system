@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h1>Employee System</h1>
+    <ul>
+      <li onclick="navigateTo('dashboard')">Dashboard</li>
+      <li onclick="navigateTo('employee-list')">Employee List</li>
+      <li onclick="navigateTo('positions')">Positions</li>
+      <li onclick="navigateTo('attendance')">Attendance</li>
+      <li onclick="logout()">Logout</li>
+    </ul>
+  </div>
+
+  <!-- Main content -->
+  <div class="main">
+    <div class="user-info">
+      <span id="user-name">Mikylla Palenzuela</span>
+      <span id="user-role">Admin</span>
+    </div>
+
+    <div class="header">Dashboard</div>
+
+    <div class="cards">
+      <div class="card">
+        <h2>Total Employees</h2>
+        <p id="total-employees">0</p>
+      </div>
+      <div class="card">
+        <h2>Total Departments</h2>
+        <p id="total-departments">0</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>
