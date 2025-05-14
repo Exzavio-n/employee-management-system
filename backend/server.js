@@ -25,6 +25,25 @@ app.get('/', (req, res) => {
   res.redirect('/index/index.html');
 });
 
+// Route to get dashboard data
+app.get('/api/dashboard', (req, res) => {
+  const employeeCountQuery = 'SELECT COUNT(*) AS totalEmployee FROM employee';
+  const positionCountQuery = 'SELECT COUNT(DISTINCT position) AS totalPosition FROM position';
+
+  db.query(employeeCountQuery, (err, employeeResult) => {
+    if (err) return res.status(500).json({ error: err });
+
+    db.query(positionCountQuery, (err, positionResult) => {
+      if (err) return res.status(500).json({ error: err });
+
+      res.json({
+        employeeCount: employeeResult[0].employeeCount,
+        positionCount: positionResult[0].positionCount
+      });
+    });
+  });
+});
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);

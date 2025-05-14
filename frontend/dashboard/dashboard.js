@@ -20,3 +20,15 @@ function logout() {
   // Redirect to login
   window.location.href = '../index/index.html';
 }
+
+fetch('http://localhost:3000/api/dashboard')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('totalEmployee').textContent = data.employeeCount;
+        document.getElementById('totalPosition').textContent = data.positionCount;
+      })
+      .catch(err => {
+        console.error(err);
+        document.getElementById('totalEmployee').textContent = 'Error';
+        document.getElementById('totalPosition').textContent = 'Error';
+      });
